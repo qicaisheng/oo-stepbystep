@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Klass {
+public class Klass implements KlassSubject {
     private int number;
     private List<Student> students;
     private Student leader;
@@ -42,6 +42,7 @@ public class Klass {
         }
     }
 
+    @Override
     public void register(KlassObserver klassObserver) {
         klassObservers.add(klassObserver);
     }
