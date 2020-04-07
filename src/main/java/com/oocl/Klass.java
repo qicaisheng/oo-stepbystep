@@ -36,9 +36,8 @@ public class Klass {
 
     public void appendMember(final Student student) {
         if (student.getKlassNumber() != number) {
-            students.forEach(otherStudent -> otherStudent.welcome(student, this));
+            klassObservers.forEach(klassObserver -> klassObserver.welcome(student, this));
             klassObservers.add(student);  
-            teacher.welcome(student, this);
             this.students.add(student);
         }
     }
