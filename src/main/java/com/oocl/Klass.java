@@ -27,7 +27,7 @@ public class Klass {
 
     public void assignTeacher(Teacher teacher) {
         this.teacher = teacher;
-        klassObservers.add(teacher);
+        register(teacher);
     }
 
     public boolean isTeacherOfThisClass(Teacher teacher) {
@@ -37,9 +37,13 @@ public class Klass {
     public void appendMember(final Student student) {
         if (student.getKlassNumber() != number) {
             klassObservers.forEach(klassObserver -> klassObserver.welcome(student, this));
-            klassObservers.add(student);  
+            register(student);
             this.students.add(student);
         }
+    }
+
+    public void register(KlassObserver klassObserver) {
+        klassObservers.add(klassObserver);
     }
 
     public boolean contains(Student student) {
