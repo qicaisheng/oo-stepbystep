@@ -1,8 +1,12 @@
 package com.oocl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Student extends Person {
 
     private int klassNumber;
+    private ArrayList<String> welcomeMessages = new ArrayList<String>();
 
     @Override
     public String introduce() {
@@ -15,5 +19,14 @@ public class Student extends Person {
 
     public void setKlassNumber(int klass) {
         this.klassNumber = klass;
+    }
+
+    public List<String> getWelcomeMessages() {
+        return this.welcomeMessages;
+    }
+
+    public void welcome(Student student, Klass klass) {
+        String welcomeMessage = introduce() + String.format(" Welcome %s join Class %d.", student.getName(), klass.getNumber());
+        this.welcomeMessages.add(welcomeMessage);
     }
 }

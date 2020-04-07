@@ -30,10 +30,11 @@ public class Klass {
         return this.teacher == teacher;
     }
 
-    public void appendMember(Student student) {
+    public void appendMember(final Student student) {
         if (student.getKlassNumber() != number) {
-            this.students.add(student);
+            students.forEach(otherStudent -> otherStudent.welcome(student, this));
             teacher.welcome(student, this);
+            this.students.add(student);
         }
     }
 
