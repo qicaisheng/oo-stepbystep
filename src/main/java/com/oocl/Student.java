@@ -3,7 +3,7 @@ package com.oocl;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Student extends Person {
+public class Student extends Person implements KlassObserver {
 
     private int klassNumber;
     private ArrayList<String> welcomeMessages = new ArrayList<String>();
@@ -25,6 +25,7 @@ public class Student extends Person {
         return this.welcomeMessages;
     }
 
+    @Override
     public void welcome(Student student, Klass klass) {
         String welcomeMessage = introduce() + String.format(" Welcome %s join Class %d.", student.getName(), klass.getNumber());
         this.welcomeMessages.add(welcomeMessage);
