@@ -33,6 +33,7 @@ public class Klass {
     public void appendMember(Student student) {
         if (student.getKlassNumber() != number) {
             this.students.add(student);
+            teacher.welcome(student, this);
         }
     }
 
